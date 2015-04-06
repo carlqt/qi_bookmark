@@ -1,2 +1,16 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1 Share you links
+
+= form_for :links do |f|
+  .row
+    .col-md-6
+      = f.text_field :name, placeholder: "share your links", class: 'form-control'
+    .col-md-6
+  %br
+  .row
+    .col-md-3
+      = f.submit "Post", class: "form-control btn btn-success"
+    .col-md-3
+      = f.submit "Share", class: "form-control btn btn-primary"
+    .col-md-6
+
+%hr
