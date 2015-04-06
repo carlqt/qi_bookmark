@@ -10,8 +10,9 @@
     .col-md-3
       = f.submit "Post", class: "form-control btn btn-success"
     .col-md-3
-      = f.submit "Share", class: "form-control btn btn-primary"
+      = link_to "Share", "#", "data-target" => "#user-tag-modal", "data-toggle" => "modal", class: "form-control btn btn-primary"
     .col-md-6
+  = render "share_user_modal"
 
 %hr
 

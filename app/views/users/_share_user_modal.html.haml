@@ -1,16 +1,18 @@
-.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "gridSystemModalLabel", :role => "dialog"}
+#user-tag-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "user-tag-modal", :role => "dialog", :tabindex => "-1"}
   .modal-dialog
     .modal-content
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} &times;
-        %h4#gridSystemModalLabel.modal-title Modal title
+        %h4#myModalLabel.modal-title Modal title
       .modal-body
-        .container-fluid
-          .row
-            
+        = text_field_tag "user_names", nil, class: "form-control", placeholder: "add users to share"
+
+        %hr
+        - User.all.each do |user|
+          = check_box_tag "user_check"
+          = user.username
+          %br
+      .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
         %button.btn.btn-primary{:type => "button"} Save changes
-    / /.modal-content
-  / /.modal-dialog
-/ /.modal
