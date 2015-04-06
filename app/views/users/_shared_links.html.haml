@@ -1,13 +1,14 @@
-.row
-  .col-sm-12
-.row
-  .col-sm-1
-    .thumbnail
-      %img.img-responsive.user-photo{:src => "https://ssl.gstatic.com/accounts/ui/avatar_2x.png"}
-  .col-sm-5
-    .panel.panel-default
-      .panel-heading
-        %strong myusername
-        %span.text-muted commented 5 days ago
-      .panel-body
-        Panel content
+= links.each do |link|
+  .row
+    .col-sm-12
+  .row
+    .col-sm-1
+      .thumbnail
+        %img.img-responsive.user-photo{:src => "https://ssl.gstatic.com/accounts/ui/avatar_2x.png"}
+    .col-sm-5
+      .panel.panel-default
+        .panel-heading
+          %strong link.user.username
+          %span.text-muted commented 5 days ago
+        .panel-body
+          link.name

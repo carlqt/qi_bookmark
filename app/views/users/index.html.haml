@@ -17,4 +17,5 @@
 
 %h1 Wall
 
-= render "shared_links"
+- if @shared_link
+  = render "shared_links", links: @shared_links
