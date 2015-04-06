@@ -15,11 +15,12 @@ class UsersController < ApplicationController
       end
 
     elsif params[:commit] == 'Share'
-      Share.share_to_users
+      @link = current_user.links.new link_params
+      @link.save
+
+      Relationship.shared_users params[:shared_ids]
     end
 
-    binding.pry
-    'lol'
   end
 
   private
