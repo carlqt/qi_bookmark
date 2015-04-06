@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  scope :u do
+    resources :users
+  end
+
   get 'site/index'
 
   devise_for :users
