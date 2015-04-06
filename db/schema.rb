@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406074733) do
+ActiveRecord::Schema.define(version: 20150406080816) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "friend_id"
+    t.integer  "shared_user_id"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
