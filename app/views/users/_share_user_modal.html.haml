@@ -10,9 +10,9 @@
 
         %hr
         - User.all.each do |user|
-          = check_box_tag "user_check"
+          = check_box_tag "shared_ids[]", user.id
           = user.username
           %br
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{:type => "button"} Save changes
+        = form.submit "Save changes"

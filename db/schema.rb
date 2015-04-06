@@ -20,12 +20,11 @@ ActiveRecord::Schema.define(version: 20150406082535) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationship", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "shared_user_id"
-    t.string   "type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "link_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

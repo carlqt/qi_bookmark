@@ -3,7 +3,7 @@
 = form_for :links do |f|
   .row
     .col-md-6
-      = f.text_field :name, placeholder: "share your links", class: 'form-control'
+      = f.text_field :name, placeholder: "share your links", class: 'form-control', required: true
     .col-md-6
   %br
   .row
@@ -12,11 +12,11 @@
     .col-md-3
       = link_to "Share", "#", "data-target" => "#user-tag-modal", "data-toggle" => "modal", class: "form-control btn btn-primary"
     .col-md-6
-  = render "share_user_modal"
+  = render "share_user_modal", form: f
 
 %hr
 
 %h1 Wall
 
-- if @shared_link
+- if @shared_links
   = render "shared_links", links: @shared_links

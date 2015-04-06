@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     if params[:commit] == 'Post'
-      @link = Link.new link_params
+      @link = current_user.links.new link_params
 
       if @link.save
         redirect_to :back
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       end
 
     elsif params[:commit] == 'Share'
-      
+      Share.share_to_users
     end
 
     binding.pry
@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:name)
+    params.require(:links).permit(:name)
   end
 end

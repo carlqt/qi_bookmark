@@ -1,4 +1,4 @@
-= links.each do |link|
+- links.each do |link|
   .row
     .col-sm-12
   .row
@@ -8,7 +8,7 @@
     .col-sm-5
       .panel.panel-default
         .panel-heading
-          %strong link.user.username
+          %strong= link.user.username
           %span.text-muted commented 5 days ago
         .panel-body
-          link.name
+          = link.name
