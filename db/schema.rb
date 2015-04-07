@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406082535) do
+ActiveRecord::Schema.define(version: 20150407014238) do
 
   create_table "links", force: :cascade do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150406082535) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationship", force: :cascade do |t|
+  create_table "shared_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "link_id"
     t.datetime "created_at", null: false

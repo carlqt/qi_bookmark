@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @link = Link.new
-    @shared_links = Link.includes(:user)
+    @shared_links = Link.includes(:user).order(created_at: :desc)
   end
 
   def create
