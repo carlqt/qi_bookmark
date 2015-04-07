@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
     @link = Link.new
     @shared_links = Link.viewable(current_user)
