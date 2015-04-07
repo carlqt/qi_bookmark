@@ -21,3 +21,9 @@
 body {
   padding: 70px;
 }
+
+.field_with_errors {
+  input {
+    border-color: red;
+  }
+}

@@ -6,7 +6,7 @@ class LinksController < ApplicationController
       @link = current_user.links.new link_params
 
       if @link.save
-        redirect_to :back
+        redirect_to user_path(current_user)
       else
         @shared_links = Link.viewable(current_user)
         @user = current_user
