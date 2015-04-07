@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  extend FriendlyId
+  friendly_id :username, use: :slugged
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -9,4 +12,6 @@ class User < ActiveRecord::Base
   has_many :links
 
   accepts_nested_attributes_for :shared_users
+
+  validates :username, uniqueness: true
 end
