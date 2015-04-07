@@ -12,7 +12,7 @@
           - if current_user
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %span.glyphicon.glyphicon-user>
-              %strong= current_user.email
+              %strong= current_user.username
               %span.glyphicon.glyphicon-chevron-down
             %ul.dropdown-menu
               %li= link_to "Edit Profile", "#"
