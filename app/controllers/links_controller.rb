@@ -8,7 +8,9 @@ class LinksController < ApplicationController
       if @link.save
         redirect_to :back
       else
-        render :index
+        @shared_links = Link.viewable(current_user)
+        @user = current_user
+        render template: "users/show"
       end
 
     elsif params[:commit] == 'Share'

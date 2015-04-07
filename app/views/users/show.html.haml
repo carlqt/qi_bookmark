@@ -14,11 +14,11 @@
       .col-md-3
         = link_to "Share", "#", "data-target" => "#user-tag-modal", "data-toggle" => "modal", class: "form-control btn btn-primary"
       .col-md-6
-    = render "share_user_modal", form: f
+    = render "users/share_user_modal", form: f
 
   %hr
 
 %h1= "Wall of #{@user.username}"
 
 - if @shared_links
-  = render "shared_links", links: @shared_links
+  = render "users/shared_links", links: @shared_links
