@@ -10,9 +10,11 @@
 
         %hr
         - User.all.each do |user|
-          = check_box_tag "shared_ids[]", user.id
-          = user.username
+          = label_tag :username do
+            = check_box_tag "shared_ids[]", user.id
+            = user.username
           %br
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        = form.submit "Share", class: "btn btn-success"
+        = form.hidden_field :is_shared, value: true
+        = form.submit "Share", class: 'btn btn-success'

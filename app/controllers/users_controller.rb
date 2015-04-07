@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @link = Link.new
-    @shared_links = Link.includes(:user).order(created_at: :desc)
+    @shared_links = Link.viewable(current_user)
   end
 
   def create
@@ -17,8 +17,7 @@ class UsersController < ApplicationController
     elsif params[:commit] == 'Share'
       @link = current_user.links.new link_params
       @link.save
-      # binding.pry
-      SharedUser.shared_users params[:shared_ids], @link
+      @link.user_shares << User.find(params[:shared_ids])
       redirect_to :back
     end
 
@@ -27,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def link_params
-    params.require(:links).permit(:name)
+    params.require(:links).permit(:name, :is_shared)
   end
 end
