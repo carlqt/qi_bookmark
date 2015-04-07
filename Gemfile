@@ -43,6 +43,7 @@ gem 'workflow'
 gem 'active_record-acts_as'
 gem 'random_data'
 gem 'bootstrap-tagsinput-rails'
+gem 'friendly_id'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
