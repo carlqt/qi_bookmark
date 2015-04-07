@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :links
+
   get 'site/index'
 
   devise_for :users

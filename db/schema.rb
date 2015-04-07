@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150407143202) do
     t.boolean  "is_shared",  default: false
   end
 
-  create_table "relationship", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "link_id"
     t.datetime "created_at", null: false

@@ -1,20 +1,22 @@
-%h1 Share you links
+- if current_user.id == @user.id
 
-= form_for :links do |f|
-  .row
-    .col-md-6
-      = f.text_field :name, placeholder: "share your links", class: 'form-control', required: true
-    .col-md-6
-  %br
-  .row
-    .col-md-3
-      = f.submit "Post", class: "form-control btn btn-success"
-    .col-md-3
-      = link_to "Share", "#", "data-target" => "#user-tag-modal", "data-toggle" => "modal", class: "form-control btn btn-primary"
-    .col-md-6
-  = render "share_user_modal", form: f
+  %h1 Share you links
 
-%hr
+  = form_for @link do |f|
+    .row
+      .col-md-6
+        = f.text_field :name, placeholder: "share your links", class: 'form-control', required: true
+      .col-md-6
+    %br
+    .row
+      .col-md-3
+        = f.submit "Post", class: "form-control btn btn-success"
+      .col-md-3
+        = link_to "Share", "#", "data-target" => "#user-tag-modal", "data-toggle" => "modal", class: "form-control btn btn-primary"
+      .col-md-6
+    = render "share_user_modal", form: f
+
+  %hr
 
 %h1= "Wall of #{@user.username}"
 

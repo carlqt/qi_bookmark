@@ -1,6 +1,6 @@
 %h1 Share you links
 
-= form_for :links do |f|
+= form_for :links, url: users_path do |f|
   .row
     .col-md-6
       = f.text_field :name, placeholder: "share your links", class: 'form-control', required: true
