@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
 
   accepts_nested_attributes_for :relationships
 
-  validates_format_of :name, with: URI.regexp, message: "Your post didn't contain or is not a link"
+  validates_format_of :name, with: URI.regexp, message: "didn't contain or is not a link"
 
   def self.viewable(user)
     links = Link.includes(:user).order(created_at: :desc).select do |link|

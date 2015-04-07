@@ -10,6 +10,7 @@ class LinksController < ApplicationController
       else
         @shared_links = Link.viewable(current_user)
         @user = current_user
+        flash.now[:danger] = @link.errors.full_messages
         render template: "users/show"
       end
 
@@ -17,6 +18,7 @@ class LinksController < ApplicationController
       @link = current_user.links.new link_params
       @link.save
       @link.user_shares << User.find(params[:shared_ids])
+      flash[:success] = "Link posted"
       redirect_to :back
     end
   end
