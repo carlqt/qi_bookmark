@@ -17,7 +17,7 @@ class LinksController < ApplicationController
     elsif params[:commit] == 'Share'
       @link = current_user.links.new link_params
       @link.save
-      @link.user_shares << User.find(params[:shared_ids])
+      @link.shared_to_users << User.find(params[:shared_ids])
       flash[:success] = "Link posted"
       redirect_to :back
     end
