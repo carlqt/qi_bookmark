@@ -4,6 +4,13 @@ class UsersController < ApplicationController
     @shared_links = Link.viewable(current_user)
   end
 
+  def show
+    @user = User.friendly.find params[:id]
+    @link = Link.new
+    @shared_links = Link.viewable(current_user)
+
+  end
+
   def create
     if params[:commit] == 'Post'
       @link = current_user.links.new link_params
