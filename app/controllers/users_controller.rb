@@ -17,8 +17,9 @@ class UsersController < ApplicationController
     elsif params[:commit] == 'Share'
       @link = current_user.links.new link_params
       @link.save
-
-      Relationship.shared_users params[:shared_ids]
+      # binding.pry
+      SharedUser.shared_users params[:shared_ids], @link
+      redirect_to :back
     end
 
   end
