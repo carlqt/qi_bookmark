@@ -9,6 +9,6 @@
       .panel.panel-default
         .panel-heading
           %strong= link.user.username
-          %span.text-muted commented 5 days ago
+          %span.text-muted= time_ago_in_words(link.created_at)
         .panel-body
           = link.name
