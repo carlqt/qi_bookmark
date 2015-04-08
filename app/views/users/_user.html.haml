@@ -1,0 +1,22 @@
+= link_to user_path(user.slug) do
+  .row
+    .col-sm-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title= user.username
+        .panel-body
+          .row
+            .col-md-3.col-lg-3{:align => "center"}
+              - if user.avatar.blank?
+                = image_tag "http://placehold.it/100x100", class: "avatar img-circle", alt: "avatar"
+              - else
+                = image_tag user.avatar.thumb, class: "avatar img-circle", alt: "avatar"
+            .col-md-9.col-lg-9
+              %table.table.table-user-information
+                %tbody
+                  %tr
+                    %td Email:
+                    %td= user.email
+                  %tr
+                    %td Name:
+                    %td= user.name
