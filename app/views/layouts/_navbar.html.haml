@@ -7,6 +7,9 @@
         %span.icon-bar
       %a.navbar-brand{:href => current_user ? user_path(current_user) : nil} Bookmarking Site
     .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to "See all users", "#"
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           - if current_user
