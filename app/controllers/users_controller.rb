@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @user = User.friendly.find params[:id]
     @link = Link.new
     @shared_links = Kaminari.paginate_array(Link.viewable(current_user)).page(params[:page]).per(5)
-
   end
 
   def create
