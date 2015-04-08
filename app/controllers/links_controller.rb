@@ -8,7 +8,8 @@ class LinksController < ApplicationController
       if @link.save
         redirect_to user_path(current_user)
       else
-        @shared_links = Link.viewable(current_user)
+        @shared_links = Kaminari.paginate_array(Link.viewable(current_user)).page(params[:page]).per(5)
+        
         @user = current_user
         flash.now[:danger] = @link.errors.full_messages
         render template: "users/show"

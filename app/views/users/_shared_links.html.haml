@@ -11,4 +11,5 @@
           %strong= link.user.username
           %span.text-muted= time_ago_in_words(link.created_at)
         .panel-body
-          = link_to URI.extract(link.name).first, URI.extract(link.name).first, target: '_blank', rel: 'nofollow'
+          = auto_link(link.name)
+          -# = link_to URI.extract(link.name).first, URI.extract(link.name).first, target: '_blank', rel: 'nofollow'
